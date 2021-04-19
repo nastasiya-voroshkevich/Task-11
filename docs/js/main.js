@@ -15,16 +15,13 @@ button.addEventListener("click", function () {
   if (select2.value === select.value) {
     input2.value = input.value;
   }
-  fetch(
-    `https://www.nbrb.by/api/exrates/rates/usd?periodicity=0&parammode=2&ondate=${date.value}`
-  )
+  fetch(`https://www.nbrb.by/api/exrates/rates/usd?periodicity=0&parammode=2&ondate=${date.value}`)
     .then((response) => response.json())
     .then((usd) => {
       currents.usd = usd.Cur_OfficialRate;
 
       return fetch(
-        `https://www.nbrb.by/api/exrates/rates/eur?periodicity=0&parammode=2&ondate=${date.value}`
-      );
+        `https://www.nbrb.by/api/exrates/rates/eur?periodicity=0&parammode=2&ondate=${date.value}`);
     })
     .then((response) => response.json())
     .then((eur) => {
